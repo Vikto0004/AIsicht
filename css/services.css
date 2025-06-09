@@ -1,0 +1,84 @@
+/* === Services === */
+
+.services {
+  padding: 120px 0 150px;
+}
+
+.services-content .title {
+  margin-bottom: 12px;
+}
+
+.services-content .descr {
+  max-width: 834px;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px 40px;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.services-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  width: 100%;
+  border-radius: var(--border-radius-primary);
+  border: 2px dashed var(--secondary-background);
+}
+
+.services-item-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  max-width: 200px;
+  margin-top: -50px;
+  padding: 30px 10px 40px;
+  position: relative;
+}
+
+.services-item-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 1;
+
+  background-color: var(--primary-color);
+
+  mask: var(--drop-mask-url) center / 100% 100% no-repeat;
+  -webkit-mask: var(--drop-mask-url) center / 100% 100% no-repeat;
+}
+
+.services-item-wrap img {
+  width: 80px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.services-item-content {
+  padding: 10px 15px 25px;
+}
+
+.services-item-content .subtitle {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .services-content,
+  .services-list {
+    width: 100%;
+  }
+
+  .services-list {
+    padding-top: 40px;
+  }
+}

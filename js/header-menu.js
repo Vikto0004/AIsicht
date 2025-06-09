@@ -1,0 +1,57 @@
+const body = document.body;
+const header = document.querySelector(".header");
+
+const burgerBtn = document.querySelector(".burgerBtn");
+const headerMenu = document.querySelector(".mobileMenu");
+const closeBtn = document.querySelector(".closeBtn");
+
+function openMenu() {
+  headerMenu.classList.add("mobile-menu-active");
+}
+
+function closeMenu() {
+  headerMenu.classList.remove("mobile-menu-active");
+}
+
+burgerBtn.addEventListener("click", openMenu);
+closeBtn.addEventListener("click", closeMenu);
+headerMenu.addEventListener("click", (e) => {
+  if (e.target.classList.contains("mobile-nav-link")) {
+    closeMenu();
+  }
+});
+
+function headerPosition() {
+  const header = document.querySelector("header");
+
+  if (window.scrollY > 10) {
+    header.classList.add("header-active");
+  } else {
+    header.classList.remove("header-active");
+  }
+
+  if (!body.querySelector(".hero") && header) {
+    header.classList.add("header-active");
+  }
+}
+
+headerPosition();
+window.addEventListener("scroll", headerPosition);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage =
+    window.location.pathname.split("/")[1].split(".")[0] || "index";
+
+  const setActiveLink = (selector) => {
+    document.querySelectorAll(selector).forEach((link) => {
+      const linkPage = link.getAttribute("href")?.split("/")[1]?.split(".")[0];
+
+      if (linkPage === currentPage) {
+        link.classList.add("header-link-active");
+      }
+    });
+  };
+
+  setActiveLink(".header-nav a");
+  setActiveLink(".mobile-nav a, .mobile-nav-link");
+});
