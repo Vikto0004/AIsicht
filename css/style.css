@@ -716,6 +716,12 @@
   bottom: 400px;
 }
 
+@media screen and (max-width: 768px) {
+  .our-blog-list .our-blog-item {
+    width: 100%;
+  }
+}
+
 /* === Contact === */
 
 .contact {
